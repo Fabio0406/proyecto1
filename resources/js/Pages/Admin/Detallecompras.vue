@@ -107,7 +107,7 @@ const agregarDetalleCompra = async () => {
     }
 
     try {
-        const response = await Inertia.post(`http://localhost:8000/admin/detallecompras/${props.compras.id}`, {
+        const response = await Inertia.post(`/admin/detallecompras/${props.compras.id}`, {
             producto_id: nuevoDetalle.value.producto_id,
             cantidad: nuevoDetalle.value.cantidad,
             precio_unitario: nuevoDetalle.value.precio_unitario,
@@ -133,7 +133,7 @@ const totalCompra = computed(() => {
 
 const guardarTotal = async () => {
     try {
-        await Inertia.put(`http://localhost:8000/admin/compras/${props.compras.id}`, {
+        await Inertia.put(`/admin/compras/${props.compras.id}`, {
             total: totalCompra.value, // Enviar el total calculado al backend
         });
 
@@ -145,7 +145,7 @@ const guardarTotal = async () => {
 };
 
 const volver = () => {
-    Inertia.get('http://localhost:8000/admin/compras');
+    Inertia.get('/admin/compras');
 };
 
 

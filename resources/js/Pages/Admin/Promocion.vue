@@ -150,7 +150,7 @@ const closeModal = () => {
 
 const createPromocion = () => {
     errors.value = {};
-    Inertia.post('http://localhost:8000/admin/promociones', form.value, {
+    Inertia.post('/admin/promociones', form.value, {
         onSuccess: () => {
             closeModal();
         },
@@ -162,7 +162,7 @@ const createPromocion = () => {
 
 const updatePromocion = () => {
     errors.value = {};
-    Inertia.put(`http://localhost:8000/admin/promociones/${form.value.id}`, form.value, {
+    Inertia.put(`/admin/promociones/${form.value.id}`, form.value, {
         onSuccess: () => {
             closeModal();
         },
@@ -174,7 +174,7 @@ const updatePromocion = () => {
 
 const deletePromocion = (id) => {
     if (confirm('¿Estás seguro de que deseas eliminar esta promoción?')) {
-        Inertia.delete(`http://localhost:8000/admin/promociones/${id}`);
+        Inertia.delete(`/admin/promociones/${id}`);
     }
 };
 </script>

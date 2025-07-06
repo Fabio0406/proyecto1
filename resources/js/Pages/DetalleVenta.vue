@@ -86,16 +86,16 @@ const cantidad = ref(1);
 
 const realizarPago = async () => {
     try {
-        const response = Inertia.post('http://localhost:8000/pagos/crear', {
+        const response = Inertia.post('/pagos/crear', {
             fecha_pago: new Date(),
             monto: props.venta.total,
             metodo_pago: 'Pago Qr',
             venta_id: props.venta.id,
         });
 
-        Inertia.get('http://localhost:8000/pagos');
+        Inertia.get('/pagos');
         if (response.success) {
-            Inertia.get('http://localhost:8000/pagos');
+            Inertia.get('/pagos');
         } else {
             console.error('Error en la respuesta del servidor:', response.message);
         }
@@ -142,7 +142,7 @@ const agregarProductoVenta = async () => {
     }
 
     try {
-        const response = await axios.post(`http://localhost:8000/ventas/cliente/${props.venta.id}/detalle`, {
+        const response = await axios.post(`/ventas/cliente/${props.venta.id}/detalle`, {
             producto_id: productoSeleccionado.value,
             cantidad: cantidad.value
         });

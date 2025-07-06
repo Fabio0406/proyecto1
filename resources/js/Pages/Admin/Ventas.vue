@@ -138,7 +138,7 @@ const closeModal = () => {
 
 const createVenta = () => {
     errors.value = {};  // Limpiar los errores
-    Inertia.post('http://localhost:8000/admin/ventas', form.value, {
+    Inertia.post('/admin/ventas', form.value, {
         onSuccess: () => {
             closeModal();  // Cerrar el modal al crear
             console.log('Venta creada correctamente');
@@ -151,7 +151,7 @@ const createVenta = () => {
 
 const updateVenta = () => {
     errors.value = {};  // Limpiar los errores
-    Inertia.put(`http://localhost:8000/admin/ventas/${form.value.id}`, form.value, {
+    Inertia.put(`/admin/ventas/${form.value.id}`, form.value, {
         onSuccess: () => {
             console.log('Venta actualizada correctamente');
             closeModal();  // Cerrar el modal al actualizar
@@ -164,7 +164,7 @@ const updateVenta = () => {
 
 const deleteVenta = (id) => {
     if (confirm('¿Estás seguro de que deseas eliminar esta venta?')) {
-        Inertia.delete(`http://localhost:8000/admin/ventas/${id}`, {
+        Inertia.delete(`/admin/ventas/${id}`, {
             onSuccess: () => {
                 console.log('Venta eliminada correctamente');
             }
@@ -173,7 +173,7 @@ const deleteVenta = (id) => {
 };
 
 const goToDetalleVenta = (id) => {
-    Inertia.get(`http://localhost:8000/admin/detalleventas/${id}`);
+    Inertia.get(`/admin/detalleventas/${id}`);
 };
 </script>
 

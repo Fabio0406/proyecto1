@@ -131,7 +131,7 @@ const closeModal = () => {
 
 const createPago = () => {
     errors.value = {};  // Limpiar los errores
-    Inertia.post('http://localhost:8000/admin/pagos', form.value, {
+    Inertia.post('/admin/pagos', form.value, {
         onSuccess: () => {
             closeModal();  // Cerrar el modal al crear
         },
@@ -143,7 +143,7 @@ const createPago = () => {
 
 const updatePago = () => {
     errors.value = {};  // Limpiar los errores
-    Inertia.put(`http://localhost:8000/admin/pagos/${form.value.id}`, form.value, {
+    Inertia.put(`/admin/pagos/${form.value.id}`, form.value, {
         onSuccess: () => {
             closeModal();  // Cerrar el modal al actualizar
         },
@@ -155,7 +155,7 @@ const updatePago = () => {
 
 const deletePago = (id) => {
     if (confirm('¿Estás seguro de que deseas eliminar este pago?')) {
-        Inertia.delete(`http://localhost:8000/admin/pagos/${id}`);
+        Inertia.delete(`/admin/pagos/${id}`);
     }
 };
 </script>

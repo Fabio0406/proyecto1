@@ -18,7 +18,7 @@ export default defineConfig({
             },
         }),
     ],
-    base: 'http://localhost:8000/build',
+    base: '/inf513/grupo23sc/proyecto1/public/build/',
     resolve: {
         alias: {
           '@': resolve(__dirname, 'resources/js'),
